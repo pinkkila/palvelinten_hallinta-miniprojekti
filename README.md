@@ -1,19 +1,17 @@
 # palvelinten_hallinta-miniprojekti
-This is assignment for Palvelinten Hallinta course taught by Tero Karvinen https://terokarvinen.com/palvelinten-hallinta/
+This is an assignment for the Palvelinten Hallinta course taught by Tero Karvinen https://terokarvinen.com/palvelinten-hallinta/
 
 ## About this project
 
-This project presents Backend for Frontend pattern architecture with Spring Boot and Next.js
-using Salt Project for managing code infrastructure.
+This project demonstrates a Backend for Frontend (BFF)
+architecture using Spring Boot for the backend and Next.js for the frontend.
+Infrastructure is managed using the Salt Project.
 
-The backend part of the application is completely automated with Salt,
-but the frontend part needs little bit configuration by hand.
+The backend setup is fully automated with Salt, while the frontend requires a small amount of manual configuration.
 
-The app itself has only login (bff-pattern) and simple GET-request functionalities.
+The application itself includes only login functionality (following the BFF pattern) and simple GET requests.
 
 ![img_2.png](img/h5-miniprojekti/img_2.png)
-
-Valitettavasti Googlen OAuth kirjatutumista ei voi tässä käyttää, koska Google Consolin OAuth 2.0 credentiaaleihin kelpaa Authorized redirect URI:ksi vain localhost tai validi domain.
 
 Unfortunately,
 Google's OAuth login is not functional in this setup
@@ -23,15 +21,17 @@ because Google's OAuth 2.0 credentials require Authorized redict URI to be local
 
 ![img_5.png](img/h5-miniprojekti/img_5.png)
 
-## How to run (originally made with Apple ARM)
+## How to run
 
-Make sure you have Vagrant installed and run this command.
+(This was built on an Apple Silicon (ARM) Mac, so some parts may need adjustment to run on x86 systems).
+
+Make sure you have Java 21 and Vagrant installed, then run this command.
 
 ```
 vagrant init bento/debian-12 --box-version 202502.21.0
 ```
 
-Download and place to the same folder as Vagrantfile.
+Download these and place them in the same folder as Vagrantfile.
 
 ```
 https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public
@@ -252,7 +252,9 @@ npm:
     - makedirs: true
 ```
 
-/srv/salt/jdk/init.sls
+/srv/salt/jdk/init.sls 
+
+(Modify this if you are using x86 system).
 
 ```yaml
 /opt/jdk/jdk-21_linux-aarch64_bin.tar.gz:
@@ -383,3 +385,8 @@ npm run build
 npm run start
 ```
 
+Then in your browser go http://192.168.51.7:3000/.
+
+---
+
+The text in this README has been improved with ChatGPT.
