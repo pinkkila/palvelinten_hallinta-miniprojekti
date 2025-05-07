@@ -142,6 +142,11 @@ sudo salt-key -A
 ```
 
 ```
+sudo mkdir /srv/salt
+cd /srv/salt
+```
+
+```
 sudo mkdir auth
 sudo mkdir bff
 sudo mkdir front
@@ -152,11 +157,19 @@ sudo mkdir resource
 
 Then in each auth, bff, front and resource make folder named files and run the next commands.
 
+
+```
+sudo mkdir auth/files
+sudo mkdir bff/files
+sudo mkdir front/files
+sudo mkdir resource/files
+```
+
 ```
 sudo cp /vagrant_data/authorization-server-0.0.1-SNAPSHOT.jar /srv/salt/auth/files
 sudo cp /vagrant_data/resource-server-0.0.1-SNAPSHOT.jar /srv/salt/resource/files
 sudo cp /vagrant_data/bff-0.0.1-SNAPSHOT.jar /srv/salt/bff/files
-sudo cp -r /vagrant_data/shop-front /srv/salt/bff/files
+sudo cp -r /vagrant_data/shop-front /srv/salt/front/files
 ```
 
 Then you need to make these init.sls files (use `sudoedit`:
